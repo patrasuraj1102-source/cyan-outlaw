@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyan Outlaw — Cyanotype Apparel & Accessories</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cyan: #0D7A8A;
+    --cyan-light: #B8E4EA;
+    --cyan-pale: #EAF7F9;
+    --ink: #1A1A18;
+    --paper: #F8F5F0;
+    --cream: #EDE9E2;
+    --muted: #7A7570;
+    --rust: #8A4A2F;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(248, 245, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(13, 122, 138, 0.15);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--cyan); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cyan); }
+
+  .nav-cart {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border: 0.5px solid var(--ink);
+    padding: 8px 20px;
+    transition: all 0.2s;
+  }
+
+  .nav-cart:hover { background: var(--ink); color: var(--paper); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 48px 80px 48px;
+    position: relative;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -60px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: var(--cyan-pale);
+    z-index: -1;
+    opacity: 0.6;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: 86px;
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--cyan);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 400px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--cyan); }
+
+  .btn-secondary {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--muted);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-secondary:hover { color: var(--cyan); border-color: var(--cyan); }
+
+  .hero-right {
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cyanotype-art {
+    width: 340px;
+    height: 440px;
+    background: #1A6B7A;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .cyanotype-art::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 40%, rgba(180,230,240,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  }
+
+  .koi-svg { opacity: 0.85; }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 48px;
+    right: 48px;
+    background: var(--paper);
+    padding: 16px 20px;
+    border-left: 2px solid var(--cyan);
+  }
+
+  .hero-badge p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-badge strong {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* CARE BANNER */
+  .care-banner {
+    background: var(--cyan);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .care-banner-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+  }
+
+  .care-banner-item .icon {
+    width: 32px;
+    height: 32px;
+    border: 0.5px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .care-banner-item p {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    font-weight: 400;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .section-title em { font-style: italic; color: var(--cyan); }
+
+  /* PROCESS */
+  .process {
+    padding: 100px 48px;
+    background: var(--paper);
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--cream);
+    margin-top: 60px;
+  }
+
+  .process-step {
+    background: var(--paper);
+    padding: 48px 40px;
+    position: relative;
+  }
+
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--cyan-light);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* PRODUCTS */
+  .products {
+    padding: 100px 48px;
+    background: var(--cream);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .product-card {
+    background: var(--paper);
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card:hover { transform: translateY(-4px); }
+
+  .product-card:hover .product-overlay { opacity: 1; }
+
+  .product-image {
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-image.cyan-bg { background: #1A6B7A; }
+  .product-image.pale-bg { background: #C8E8ED; }
+  .product-image.deep-bg { background: #0D4A55; }
+  .product-image.sand-bg { background: #D8D0C2; }
+  .product-image.ink-bg { background: #1A1A18; }
+  .product-image.teal-bg { background: #2A8A9A; }
+
+  .product-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 122, 138, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .product-overlay a {
+    background: white;
+    color: var(--ink);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .product-info {
+    padding: 20px;
+    border-top: 0.5px solid var(--cream);
+  }
+
+  .product-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 6px;
+  }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .product-price {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .product-new {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    font-weight: 400;
+  }
+
+  /* CARE INSTRUCTIONS */
+  .care {
+    padding: 100px 48px;
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .care .section-title { color: var(--paper); }
+  .care .section-eyebrow { color: var(--cyan-light); }
+
+  .care-intro {
+    max-width: 600px;
+    margin: 0 auto 60px;
+    text-align: center;
+    font-size: 15px;
+    color: rgba(248,245,240,0.6);
+    line-height: 1.8;
+  }
+
+  .care-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+
+  .care-card {
+    background: var(--ink);
+    padding: 48px 40px;
+    border-top: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .care-card:hover { border-top-color: var(--cyan); }
+
+  .care-icon {
+    width: 44px;
+    height: 44px;
+    border: 0.5px solid rgba(13,122,138,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--cyan-light);
+    font-size: 18px;
+  }
+
+  .care-card-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: 12px;
+  }
+
+  .care-card-desc {
+    font-size: 14px;
+    color: rgba(248,245,240,0.55);
+    line-height: 1.8;
+  }
+
+  .care-card-desc strong {
+    color: var(--cyan-light);
+    font-weight: 400;
+  }
+
+  .care-warning {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(13,122,138,0.1);
+    border: 0.5px solid rgba(13,122,138,0.3);
+    border-left: 2px solid var(--cyan);
+    padding: 28px 36px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .care-warning-icon { color: var(--cyan-light); font-size: 20px; margin-top: 2px; }
+
+  .care-warning-text { font-size: 14px; color: rgba(248,245,240,0.7); line-height: 1.8; }
+  .care-warning-text strong { color: var(--paper); font-weight: 400; display: block; margin-bottom: 6px; font-family: var(--font-display); font-size: 18px; }
+
+  /* ABOUT */
+  .about {
+    padding: 100px 48px;
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-visual {
+    height: 500px;
+    background: var(--cyan-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: var(--cyan-light);
+    opacity: 0.3;
+  }
+
+  .about-content .section-header { text-align: left; margin-bottom: 32px; }
+
+  .about-body {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 0.5px solid var(--cream);
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--cyan);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    padding: 80px 48px;
+    background: var(--cyan-pale);
+    text-align: center;
+  }
+
+  .newsletter .section-title { margin-bottom: 16px; }
+
+  .newsletter-desc {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    max-width: 480px;
+    margin: 0 auto;
+    gap: 0;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 16px 20px;
+    border: 0.5px solid rgba(13,122,138,0.3);
+    background: white;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    border-right: none;
+  }
+
+  .newsletter-form input::placeholder { color: var(--muted); }
+  .newsletter-form input:focus { border-color: var(--cyan); }
+
+  .newsletter-form button {
+    background: var(--cyan);
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .newsletter-form button:hover { background: var(--ink); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(248,245,240,0.5);
+    padding: 60px 48px 32px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--paper);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo span { color: var(--cyan-light); }
+
+  .footer-tagline {
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--paper);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul li a {
+    font-size: 13px;
+    color: rgba(248,245,240,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--cyan-light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  /* SVG Art inside products */
+  .print-art {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease forwards; }
+  .hero-title { animation: fadeUp 0.6s ease 0.15s forwards; opacity: 0; }
+  .hero-desc { animation: fadeUp 0.6s ease 0.3s forwards; opacity: 0; }
+  .hero-cta { animation: fadeUp 0.6s ease 0.45s forwards; opacity: 0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Cyan<span>Outlaw</span></a>
+  <ul class="nav-links">
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#care">Care</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="#" class="nav-cart">Cart (0)</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Handcrafted Cyanotype — Est. 2024</p>
+    <h1 class="hero-title">Wear<br>the <em>art</em><br>of light</h1>
+    <p class="hero-desc">Each piece is printed using the ancient cyanotype process — sun, chemistry, and time. No two prints are ever identical. That's the point.</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn-primary">Shop Collection</a>
+      <a href="#process" class="btn-secondary">How it's made</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-image-placeholder">
+      <div class="cyanotype-art">
+        <svg class="koi-svg" width="280" height="380" viewBox="0 0 280 380">
+          <ellipse cx="140" cy="120" rx="55" ry="28" fill="rgba(255,255,255,0.12)" transform="rotate(-20,140,120)"/>
+          <ellipse cx="100" cy="180" rx="45" ry="22" fill="rgba(255,255,255,0.15)" transform="rotate(15,100,180)"/>
+          <ellipse cx="170" cy="240" rx="50" ry="24" fill="rgba(255,255,255,0.1)" transform="rotate(-10,170,240)"/>
+          <ellipse cx="120" cy="300" rx="42" ry="20" fill="rgba(255,255,255,0.13)" transform="rotate(25,120,300)"/>
+          <ellipse cx="155" cy="160" rx="38" ry="18" fill="rgba(255,255,255,0.08)" transform="rotate(-35,155,160)"/>
+          <circle cx="95" cy="172" r="3" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="168" cy="232" r="3" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="118" cy="292" r="3" fill="rgba(255,255,255,0.5)"/>
+          <text x="140" y="360" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-family="Cormorant Garamond, serif" font-size="11" letter-spacing="4">CYANOTYPE</text>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <p>Wash durability</p>
+      <strong>40–50 washes</strong>
+    </div>
+  </div>
+</section>
+
+<!-- CARE BANNER -->
+<div class="care-banner">
+  <div class="care-banner-item">
+    <div class="icon">✦</div>
+    <p>Cold wash only — 30°c max</p>
+  </div>
+  <div class="care-banner-item">
+    <div class="icon">✦</div>
+    <p>Turn inside out before washing</p>
+  </div>
+  <div class="care-banner-item">
+    <div class="icon">✦</div>
+    <p>No bleach, no tumble dry</p>
+  </div>
+  <div class="care-banner-item">
+    <div class="icon">✦</div>
+    <p>Shade dry only</p>
+  </div>
+  <div class="care-banner-item">
+    <div class="icon">✦</div>
+    <p>Lasts 40–50 washes with care</p>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-header">
+    <p class="section-eyebrow">The Craft</p>
+    <h2 class="section-title">How every piece<br>comes <em>alive</em></h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <h3 class="step-title">Coating</h3>
+      <p class="step-desc">Each garment is hand-coated with a photosensitive emulsion of ferric ammonium citrate and potassium ferricyanide — the same chemistry photographers used in the 1840s.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <h3 class="step-title">Exposure</h3>
+      <p class="step-desc">Botanical specimens or hand-drawn acetate negatives are placed directly on the fabric and exposed to UV light. The sun does the printing. Every print is weather-dependent and unique.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <h3 class="step-title">Fixing & Finishing</h3>
+      <p class="step-desc">The piece is washed, fixed with a hydrogen peroxide solution, and finished with a tannin treatment to maximise wash durability. Each piece is inspected, signed, and numbered.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-header">
+    <p class="section-eyebrow">Current Collection</p>
+    <h2 class="section-title">Each piece, <em>one of one</em></h2>
+  </div>
+
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-new">New</div>
+      <div class="product-image cyan-bg">
+        <svg width="200" height="300" viewBox="0 0 200 300">
+          <ellipse cx="100" cy="100" rx="60" ry="30" fill="rgba(255,255,255,0.15)" transform="rotate(-15,100,100)"/>
+          <ellipse cx="80" cy="160" rx="50" ry="25" fill="rgba(255,255,255,0.12)" transform="rotate(20,80,160)"/>
+          <ellipse cx="120" cy="220" rx="55" ry="27" fill="rgba(255,255,255,0.1)" transform="rotate(-8,120,220)"/>
+          <circle cx="75" cy="152" r="4" fill="rgba(255,255,255,0.6)"/>
+          <circle cx="118" cy="212" r="4" fill="rgba(255,255,255,0.6)"/>
+        </svg>
+        <div class="product-overlay"><a href="#">Add to Cart</a></div>
+      </div>
+      <div class="product-info">
+        <p class="product-tag">Apparel</p>
+        <p class="product-name">Koi Ribbed Tank</p>
+        <p class="product-price">₹1,800 — Limited</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image pale-bg">
+        <svg width="200" height="300" viewBox="0 0 200 300">
+          <ellipse cx="100" cy="120" rx="40" ry="70" fill="rgba(13,74,85,0.2)"/>
+          <line x1="60" y1="80" x2="60" y2="240" stroke="rgba(13,74,85,0.3)" stroke-width="1.5"/>
+          <line x1="100" y1="60" x2="100" y2="260" stroke="rgba(13,74,85,0.25)" stroke-width="1"/>
+          <line x1="140" y1="80" x2="140" y2="240" stroke="rgba(13,74,85,0.2)" stroke-width="1"/>
+          <ellipse cx="60" cy="80" rx="18" ry="8" fill="rgba(13,74,85,0.25)" transform="rotate(-30,60,80)"/>
+          <ellipse cx="100" cy="60" rx="20" ry="9" fill="rgba(13,74,85,0.2)" transform="rotate(15,100,60)"/>
+          <ellipse cx="140" cy="90" rx="16" ry="7" fill="rgba(13,74,85,0.22)" transform="rotate(-10,140,90)"/>
+        </svg>
+        <div class="product-overlay"><a href="#">Add to Cart</a></div>
+      </div>
+      <div class="product-info">
+        <p class="product-tag">Apparel</p>
+        <p class="product-name">Botanical Oversized Tee</p>
+        <p class="product-price">₹2,200 — 4 left</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image deep-bg">
+        <svg width="200" height="300" viewBox="0 0 200 300">
+          <circle cx="100" cy="150" r="70" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <circle cx="100" cy="150" r="50" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <circle cx="100" cy="150" r="30" fill="rgba(255,255,255,0.08)"/>
+          <line x1="30" y1="150" x2="170" y2="150" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+          <line x1="100" y1="80" x2="100" y2="220" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+          <circle cx="100" cy="150" r="5" fill="rgba(255,255,255,0.4)"/>
+        </svg>
+        <div class="product-overlay"><a href="#">Add to Cart</a></div>
+      </div>
+      <div class="product-info">
+        <p class="product-tag">Apparel</p>
+        <p class="product-name">Solar Print Hoodie</p>
+        <p class="product-price">₹3,600 — Preorder</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image sand-bg">
+        <svg width="200" height="300" viewBox="0 0 200 300">
+          <rect x="50" y="80" width="100" height="140" rx="2" fill="rgba(13,74,85,0.12)" stroke="rgba(13,74,85,0.2)" stroke-width="1"/>
+          <line x1="65" y1="110" x2="135" y2="110" stroke="rgba(13,74,85,0.2)" stroke-width="0.5"/>
+          <ellipse cx="100" cy="145" rx="28" ry="20" fill="rgba(13,74,85,0.15)" transform="rotate(-10,100,145)"/>
+          <ellipse cx="85" cy="170" rx="22" ry="15" fill="rgba(13,74,85,0.12)" transform="rotate(15,85,170)"/>
+          <path d="M60,80 Q60,60 80,60 L120,60 Q140,60 140,80" fill="rgba(13,74,85,0.15)" stroke="rgba(13,74,85,0.25)" stroke-width="1"/>
+        </svg>
+        <div class="product-overlay"><a href="#">Add to Cart</a></div>
+      </div>
+      <div class="product-info">
+        <p class="product-tag">Accessories</p>
+        <p class="product-name">Cyanotype Tote Bag</p>
+        <p class="product-price">₹900 — In Stock</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-new">New</div>
+      <div class="product-image teal-bg">
+        <svg width="200" height="300" viewBox="0 0 200 300">
+          <rect x="55" y="90" width="90" height="120" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <ellipse cx="100" cy="130" rx="30" ry="22" fill="rgba(255,255,255,0.12)" transform="rotate(-15,100,130)"/>
+          <ellipse cx="90" cy="165" rx="25" ry="18" fill="rgba(255,255,255,0.09)" transform="rotate(20,90,165)"/>
+          <circle cx="100" cy="100" r="6" fill="rgba(255,255,255,0.3)"/>
+        </svg>
+        <div class="product-overlay"><a href="#">Add to Cart</a></div>
+      </div>
+      <div class="product-info">
+        <p class="product-tag">Accessories</p>
+        <p class="product-name">Printed Pouch — Small</p>
+        <p class="product-price">₹650 — In Stock</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image ink-bg">
+        <svg width="200" height="300" viewBox="0 0 200 300">
+          <ellipse cx="100" cy="110" rx="55" ry="30" fill="rgba(13,122,138,0.3)" transform="rotate(-12,100,110)"/>
+          <ellipse cx="80" cy="170" rx="48" ry="26" fill="rgba(13,122,138,0.25)" transform="rotate(18,80,170)"/>
+          <ellipse cx="120" cy="230" rx="52" ry="28" fill="rgba(13,122,138,0.2)" transform="rotate(-6,120,230)"/>
+          <circle cx="75" cy="162" r="4" fill="rgba(13,122,138,0.7)"/>
+          <circle cx="117" cy="222" r="4" fill="rgba(13,122,138,0.7)"/>
+        </svg>
+        <div class="product-overlay"><a href="#">Add to Cart</a></div>
+      </div>
+      <div class="product-info">
+        <p class="product-tag">Apparel</p>
+        <p class="product-name">Midnight Koi Tee</p>
+        <p class="product-price">₹2,400 — 2 left</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CARE INSTRUCTIONS -->
+<section class="care" id="care">
+  <div class="section-header">
+    <p class="section-eyebrow">Preservation Guide</p>
+    <h2 class="section-title">Care for your<br><em>cyanotype</em></h2>
+  </div>
+  <p class="care-intro">Cyanotype is a photochemical process — beautiful, archival, and honest about its nature. With the right care, your piece will age gracefully and hold its depth for years.</p>
+
+  <div class="care-grid">
+    <div class="care-card">
+      <div class="care-icon">〜</div>
+      <h3 class="care-card-title">Washing</h3>
+      <p class="care-card-desc"><strong>Cold water only — 30°C maximum.</strong> Turn the garment inside out before every wash. Use a gentle, pH-neutral detergent. Hand wash preferred; if machine washing, use a delicate cycle. Never wring or twist the fabric — press gently to remove excess water.</p>
+    </div>
+    <div class="care-card">
+      <div class="care-icon">☀</div>
+      <h3 class="care-card-title">Drying</h3>
+      <p class="care-card-desc"><strong>Dry in the shade, always.</strong> Prolonged UV exposure after washing can cause uneven fading. Lay flat or hang in a cool, shaded space. Never tumble dry — the heat degrades the iron compounds that give cyanotype its distinctive blue depth.</p>
+    </div>
+    <div class="care-card">
+      <div class="care-icon">✕</div>
+      <h3 class="care-card-title">What to Avoid</h3>
+      <p class="care-card-desc"><strong>No bleach, ever.</strong> Bleach destroys the chemistry permanently — there is no recovery. Avoid fabric softeners, harsh detergents, and alkaline soaps. Do not iron directly over the printed area; iron on reverse only at low heat.</p>
+    </div>
+    <div class="care-card">
+      <div class="care-icon">◇</div>
+      <h3 class="care-card-title">Storage</h3>
+      <p class="care-card-desc"><strong>Store folded in a cool, dark place.</strong> Long-term exposure to direct light between wears can subtly shift the tones. Keep away from damp areas. If storing for an extended period, wrap loosely in acid-free tissue.</p>
+    </div>
+  </div>
+
+  <div class="care-warning">
+    <div class="care-warning-icon">!</div>
+    <div class="care-warning-text">
+      <strong>Expected Lifespan With Proper Care</strong>
+      With cold washing, shade drying, and no bleach — each Cyan Outlaw piece is treated to last <strong style="color:var(--cyan-light)">40 to 50 washes</strong>. After that, tones will gently fade and shift — a natural characteristic of the medium, not a defect. Many of our customers consider this ageing part of the piece's story.
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-visual">
+    <svg width="320" height="420" viewBox="0 0 320 420">
+      <rect x="0" y="0" width="320" height="420" fill="#B8E4EA"/>
+      <ellipse cx="160" cy="160" rx="90" ry="50" fill="rgba(13,74,85,0.15)" transform="rotate(-10,160,160)"/>
+      <ellipse cx="130" cy="240" rx="75" ry="40" fill="rgba(13,74,85,0.12)" transform="rotate(12,130,240)"/>
+      <ellipse cx="190" cy="310" rx="82" ry="44" fill="rgba(13,74,85,0.1)" transform="rotate(-5,190,310)"/>
+      <circle cx="128" cy="232" r="5" fill="rgba(13,74,85,0.5)"/>
+      <circle cx="188" cy="302" r="5" fill="rgba(13,74,85,0.5)"/>
+      <text x="160" y="400" text-anchor="middle" fill="rgba(13,74,85,0.3)" font-family="Cormorant Garamond, serif" font-size="11" letter-spacing="4">HANDCRAFTED</text>
+    </svg>
+  </div>
+
+  <div class="about-content">
+    <div class="section-header">
+      <p class="section-eyebrow">Our Story</p>
+      <h2 class="section-title">Made slow,<br>on <em>purpose</em></h2>
+    </div>
+    <p class="about-body">Cyan Outlaw began as an experiment — what happens when you take a printing process from 1842 and put it on a t-shirt? The answer turned out to be something people wanted to wear.</p>
+    <p class="about-body">Every piece we make is coated, exposed, and fixed by hand. We don't run batches. We don't have a factory. We have a studio, some chemistry, and an obsession with getting the blue exactly right.</p>
+    <p class="about-body">The name came from the idea that making things slowly, by hand, in 2024 is a kind of rebellion. We're fine with that.</p>
+    <div class="about-stats">
+      <div>
+        <div class="stat-num">01</div>
+        <div class="stat-label">Studio, Delhi</div>
+      </div>
+      <div>
+        <div class="stat-num">0</div>
+        <div class="stat-label">Identical pieces</div>
+      </div>
+      <div>
+        <div class="stat-num">1842</div>
+        <div class="stat-label">The process</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="section-header">
+    <p class="section-eyebrow">Stay Close</p>
+    <h2 class="section-title">New prints,<br>when they're <em>ready</em></h2>
+  </div>
+  <p class="newsletter-desc">We don't send many emails. Just when something new comes out of the darkroom.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="Your email address">
+    <button type="submit">Notify Me</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Cyan<span>Outlaw</span></div>
+      <p class="footer-tagline">Handcrafted cyanotype apparel and accessories. Made slowly, in Delhi, one piece at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Apparel</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">Limited Editions</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#care">Care Guide</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Email Us</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Cyan Outlaw. All rights reserved.</p>
+    <p>Handcrafted in Delhi, India.</p>
+  </div>
+</footer>
+
+</body>
+</html>
